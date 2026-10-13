@@ -77,3 +77,5 @@ File presence alone does **not** mean those settings are active.
 ## Notes for this Skills exercise
 
 This implementation is designed to keep the existing Mergington High application intact while adding practical repository governance, collaboration standards, and security/update workflows suitable for small multi-maintainer teams.
+&copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+
