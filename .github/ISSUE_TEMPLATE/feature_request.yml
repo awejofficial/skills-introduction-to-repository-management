@@ -1,0 +1,39 @@
+name: Feature request
+description: Suggest an improvement for the Mergington High School activities website/API
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion. Please describe the educational or operational benefit.
+  - type: input
+    id: summary
+    attributes:
+      label: Feature summary
+      placeholder: Add filtering by grade level
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or need
+      description: What user need does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe your preferred approach
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact and risks
+      description: Who benefits and what could break?

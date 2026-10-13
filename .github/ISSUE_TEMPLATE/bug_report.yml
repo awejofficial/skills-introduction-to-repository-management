@@ -1,0 +1,52 @@
+name: Bug report
+description: Report a defect in the Mergington High School activities website/API
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please provide enough detail for maintainers and teachers to reproduce it.
+  - type: input
+    id: summary
+    attributes:
+      label: Short summary
+      description: What went wrong?
+      placeholder: Students cannot sign up for Chess Club
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include exact steps, endpoint, and sample inputs
+      placeholder: |
+        1. Open /docs
+        2. Call POST /activities/Chess Club/signup with ...
+        3. Observe error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, and whether MongoDB is local
+      placeholder: Ubuntu 24.04, Python 3.12, local MongoDB running
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Paste relevant tracebacks/log lines (remove secrets)
+      render: shell

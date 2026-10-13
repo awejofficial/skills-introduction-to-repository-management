@@ -1,54 +1,74 @@
 # Introduction to Repository Management
 
-_Learn the basics of several GitHub features that can help support a collaborative, friendly, and healthy project._
+Learn the basics of GitHub features that help a school team collaborate safely and respectfully.
 
-## Welcome
+## Mergington High School website/API
 
-- **Who is this for**: Developers with the need to start collaborating.
-- **What you'll learn**: The different ways to protect your repository's content as more people join as collaborators.
-- **What you'll build**: You will prepare Mergington High School's extracurricular activities website repository so additional teachers can safely collaborate.
-- **Prerequisites**:
-  - Skills exercise: [Introduction to GitHub](https://github.com/skills/introduction-to-github)
-  - Skills exercise: [Communicate using Markdown](https://github.com/skills/communicate-using-markdown)
-  - Skills exercise: [Review pull requests](https://github.com/skills/review-pull-requests)
-- **How long**: This exercise takes less than one hour to complete.
+This repository contains the Mergington High School extracurricular activities API (FastAPI + MongoDB) used to:
 
-In this exercise, you will:
+- list activities and schedules,
+- authenticate teacher accounts,
+- sign students up for and unregister students from activities.
 
-1. Add a simple rulesets and configuration to restrict repository content.
-1. Communicate procedures to help guide collaborators.
-1. Assign responsibility of parts of the code to particular collaborators.
-1. Learn the difference between collaboration in a personal repository and organization repository.
-1. Establish ground rules to promote a healthy collaboration environment.
-1. Establish a process for managing security updates.
+Core app code lives in `src/`.
 
-> [!IMPORTANT]
-> This exercise is meant to provide an overview of many GitHub features.
-> It will provide references to learn more but not a detailed explanation for any specific subject.
+## Prerequisites
 
-### How to start this exercise
+- Python 3.11+
+- MongoDB running locally on `mongodb://localhost:27017/`
 
-Simply copy the exercise to your account, then give your favorite Octocat (Mona) **about 20 seconds** to prepare the first lesson, then **refresh the page**.
+## Local setup
 
-[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills&template_name=introduction-to-repository-management&owner=%40me&name=skills-introduction-to-repository-management&description=Exercise:+introduction+to+repository+management&visibility=public)
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
 
-<details>
-<summary>Having trouble? 🤷</summary><br/>
+## Run the project
 
-When copying the exercise, we recommend the following settings:
+```bash
+uvicorn src.app:app --reload
+```
 
-- For owner, choose your personal account or an organization to host the repository.
+Then open:
 
-- We recommend creating a public repository, since private repositories will use Actions minutes.
+- API docs: <http://127.0.0.1:8000/docs>
+- Static site: <http://127.0.0.1:8000/static/index.html>
 
-If the exercise isn't ready in 20 seconds, please check the [Actions](../../actions) tab.
+## Validation
 
-- Check to see if a job is running. Sometimes it simply takes a bit longer.
+This repository currently uses a lightweight CI workflow:
 
-- If the page shows a failed job, please submit an issue. Nice, you found a bug! 🐛
+- install dependencies,
+- run `python -m compileall src`.
 
-</details>
+There is no dedicated automated unit-test suite in this starter repository yet.
 
----
+## Safe collaboration workflow (teachers/maintainers)
 
-&copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+1. Keep `main` as the default protected branch.
+2. Create short-lived branches (`feature/...`, `fix/...`, `docs/...`).
+3. Open a pull request early with a clear summary.
+4. Require review before merging.
+5. Merge only after required checks pass.
+
+See `docs/repository-management.md` for full ruleset setup.
+
+## Policy and standards
+
+- Contributing guide: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- Code owners: [`.github/CODEOWNERS`](.github/CODEOWNERS)
+- Code of conduct: [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
+- Security policy: [`SECURITY.md`](SECURITY.md)
+- PR template: [`.github/pull_request_template.md`](.github/pull_request_template.md)
+- Issue forms: [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/)
+
+## Important: files vs GitHub settings
+
+Repository files (templates, CODEOWNERS, workflows, Dependabot config) **do not automatically enforce branch protection or review requirements**.
+
+A repository administrator must still configure GitHub settings (rulesets, required reviews, status checks, permissions, Dependabot security features) in the GitHub web UI.
+
+Detailed manual steps are in `docs/repository-management.md`.

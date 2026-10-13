@@ -1,0 +1,22 @@
+# Replace all placeholder handles below with real GitHub usernames.
+# Example format: @octocat
+
+# Default owners for the whole repository
+* @school-repo-admin @lead-teacher-maintainer
+
+# Backend/API code
+/src/backend/ @api-maintainer
+
+# Frontend static assets
+/src/static/ @frontend-maintainer
+
+# Repository governance and automation
+/.github/ @school-repo-admin
+
+# Documentation and policies
+*.md @docs-maintainer
+/docs/ @docs-maintainer
+
+# Note:
+# CODEOWNERS routes review requests. It does not, by itself, require approvals.
+# Use repository rulesets/branch protection settings to enforce required reviews.
