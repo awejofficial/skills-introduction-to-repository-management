@@ -1,0 +1,16 @@
+# Replace all placeholder handles below with real GitHub usernames or teams.
+# CODEOWNERS routes review requests but does not enforce approvals on its own.
+# Use a branch ruleset/branch protection requiring reviews to enforce approvals.
+
+# Default owner for the whole repository
+* @school-repo-admin
+
+# Backend API and data logic
+/src/backend/ @school-backend-maintainer
+/src/app.py @school-backend-maintainer
+
+# Frontend static site assets
+/src/static/ @school-frontend-maintainer
+
+# Repository governance and automation files
+/.github/ @school-repo-admin
