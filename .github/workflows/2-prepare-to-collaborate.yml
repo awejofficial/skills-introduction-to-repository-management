@@ -21,7 +21,7 @@ jobs:
     if: |
       !github.event.repository.is_template
     name: Find Exercise Issue
-    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.6.0
+    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.9.3
 
   check_step_work:
     name: Check step work
@@ -32,10 +32,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Get Exercise Toolkit
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: skills/exercise-toolkit
           path: exercise-toolkit
@@ -54,7 +54,7 @@ jobs:
 
       - name: Check CONTRIBUTING.md exists
         id: check-contributing
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const fs = require('fs');
@@ -76,7 +76,7 @@ jobs:
 
       - name: Check CODEOWNERS exists
         id: check-codeowners
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const fs = require('fs');
@@ -98,7 +98,7 @@ jobs:
 
       - name: Check all results
         id: check-all-results
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const checks = [
@@ -114,7 +114,7 @@ jobs:
 
       - name: Build message - step results
         id: build-message-step-results
-        uses: skills/action-text-variables@v2
+        uses: skills/action-text-variables@v4
         with:
           template-file: exercise-toolkit/markdown-templates/step-feedback/step-results.md
           template-vars: >
@@ -144,7 +144,7 @@ jobs:
 
       - name: Build message - step finished
         id: build-message-step-finish
-        uses: skills/action-text-variables@v2
+        uses: skills/action-text-variables@v4
         with:
           template-file: exercise-toolkit/markdown-templates/step-feedback/step-finished-prepare-next-step.md
           template-vars: |
@@ -167,10 +167,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Get Exercise Toolkit
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: skills/exercise-toolkit
           path: exercise-toolkit
